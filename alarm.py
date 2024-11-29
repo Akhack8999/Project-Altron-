@@ -35,4 +35,4 @@ def ring(time):
         elif currenttime + "00:00:30" == Alarmtime:
             exit()
 
-ring(time) 
+ring(time)  
