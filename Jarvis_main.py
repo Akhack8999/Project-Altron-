@@ -68,3 +68,90 @@ def speak(audio):
       timehere.close()
       os.startfile("alarm.py")
  
+
+  if __name__ == "__main__":
+      while True:
+          query = takeCommand().lower()
+          if "wake up" in query:
+              from GreetMe import greetMe
+              greetMe()
+  
+              while True:
+                  query = takeCommand().lower()
+                  if "go to sleep" in query:
+                      speak("Ok sir , You can call me anytime")
+                      break 
+                    
+                  # Jarvis: version 2.0
+                  
+                    elif "change password" in query:
+                      speak("What's the   new password")
+                      new_pw = input("Enter the new password\n")
+                      new_password = open("password.txt","w")
+                      new_password.write(new_pw)
+                      new_password.close()
+                      speak("Done sir")
+                      speak(f"Your new password is{new_pw}")
+                    
+                    elif "schedule my day" in query:
+                        tasks = [] #Empty list 
+                        speak("Do you want to clear old tasks (Plz speak YES or NO)")
+                        query = takeCommand().lower()
+                        if "yes" in query:
+                            file = open("tasks.txt","w")
+                            file.write(f"")
+                            file.close()
+                            no_tasks = int(input("Enter the no. of tasks :- "))
+                            i = 0
+                            for i in range(no_tasks):
+                                tasks.append(input("Enter the task :- "))
+                                file = open("tasks.txt","a")
+                                file.write(f"{i}. {tasks[i]}\n")
+                                file.close()
+                        elif "no" in query:
+                            i = 0
+                            no_tasks = int(input("Enter the no. of tasks :- "))
+                            for i in range(no_tasks):
+                                tasks.append(input("Enter the task :- "))
+                                file = open("tasks.txt","a")
+                                file.write(f"{i}. {tasks[i]}\n")
+                                file.close()
+                 elif "show my schedule" in query:
+                     file = open("tasks.txt","r")
+                     content = file.read()
+                     file.close()
+                     mixer.init()
+                     mixer.music.load("notification.mp3")
+                     mixer.music.play()
+                     notification.notify(
+                         title = "My schedule :-",
+                         message = content,
+                         timeout = 15
+                         )
+                         
+                  elif "focus mode" in query:
+                                      a = int(input("Are you sure that you want to enter focus mode :- [1 for YES / 2 for NO "))
+                                      if (a==1):
+                                          speak("Entering the focus mode....")
+                                          os.startfile("D:\\Coding\\Youtube\\Jarvis\\FocusMode.py")
+                                          exit()
+                  
+                                      
+                                      else:
+                                          pass       
+                   
+                  elif "show my focus" in query:
+                                      from FocusGraph import focus_graph
+                                      focus_graph()    
+                                      
+                                      
+                                      
+                  elif "translate" in query:
+                                      from Translator import translategl
+                                      query = query.replace("jarvis","")
+                                      query = query.replace("translate","")
+                                      translategl(query)
+                         
+                         
+  ####################################
+
