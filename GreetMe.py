@@ -1,9 +1,3 @@
-<html>
-  <head></head>
-  <body>
-  <h1> GreetMe.py </h1>
-  <h2> cord </h2>
-
 import pyttsx3
 import datetime
 
@@ -29,5 +23,3 @@ def greetMe():
     speak("Please tell me, How can I help you ?")
 
 
-    </body>
-</html>
