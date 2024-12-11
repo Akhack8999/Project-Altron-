@@ -12,3 +12,40 @@ download file (1) (click this link)
 https://www.python.org/downloads/release/python-3131/
 
 download file (2) (click this link)
+
+
+___________[ setup windows ]_________
+
+open terminal and copy paste is command 
+
+
+
+
+
+
+cat /etc/os-release
+sudo nano /etc/apt/sources.list
+
+sudo apt update
+sudo apt full-upgrade -y
+sudo apt autoremove
+sudo init  #password 
+cat /etc/os-release
+exit
+
+#### 
+
+deb https://kali.download/kali
+
+##### VISUAL STUDIO CODE #####
+
+cd download 
+ls
+sudo dpkg -i (code file name copy paste)
+code
+
+#### PYTHON #####
+
+cd download 
+ls
+sudo dpkg -i ( code file name copy paste)
